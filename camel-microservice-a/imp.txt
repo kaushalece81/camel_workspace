@@ -1,0 +1,41 @@
+install docker
+download activemq image
+
+docker run -p 61616:61616 -p 8161:8161 rmohr/activemq
+display running containers
+docker container ls 
+show images
+docker images
+console port 8161
+broker port 61616
+ActiveMQ WebConsole available at http://0.0.0.0:8161/ or http://localhost:8161/
+
+Manage ActiveMQ broker
+username : admin
+pwd : admin
+
+create queue
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-activemq-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+restart whenever change in pom.xml
+
+properties fole
+spring.activemq.broker-url=tcp://localhost:61616
+
+
+https://activemq.apache.org/download.html in windows from zip file
+https://activemq.apache.org/components/classic/download/
+
+
+
+C:\softwares\apache-activemq-5.16.4\bin\win64>docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED             STATUS             PORTS                                                                                   NAMES
+bdce6d4c837e   rmohr/activemq   "/bin/sh -c 'bin/act…"   About an hour ago   Up About an hour   1883/tcp, 5672/tcp, 0.0.0.0:8161->8161/tcp, 61613-61614/tcp, 0.0.0.0:61616->61616/tcp   awesome_jackson
+
+
+C:\softwares\apache-activemq-5.16.4\bin\win64>docker container ls
+CONTAINER ID   IMAGE            COMMAND                  CREATED             STATUS             PORTS                                                                                   NAMES
+bdce6d4c837e   rmohr/activemq   "/bin/sh -c 'bin/act…"   About an hour ago   Up About an hour   1883/tcp, 5672/tcp, 0.0.0.0:8161->8161/tcp, 61613-61614/tcp, 0.0.0.0:61616->61616/tcp   awesome_jackson

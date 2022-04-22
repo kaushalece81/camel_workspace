@@ -1,0 +1,33 @@
+Camel Terminology
+
+Camel Context : Routes + components[logs, files, queue]
+1. endpoint is reference to queue, database or file
+2. Route = connection between endpoints + processor + transformer
+3. Components are extensions like activemq, Kafka, JMS, JSON etc added in pom.xml
+4. Transformation : 
+	a. Data format transformation - XML to JSON
+	b. Data type transformation - String to CurrencyConversionBean
+	
+Message -combination of Body + Headers + Attachments
+Exchange : contains request and response
+	1. Exchange ID
+	2. Message Exchange Pattern(MEP)  - InOnly/InOut
+	3. Input message and Optional Output message
+	
+	
+	Error due to .unmarshal().json(JsonLibrary.Jackson, CurrencyExchange.class)
+	
+	Caused by: java.lang.IllegalArgumentException: Data format 'jackson' could not be created. Ensure that the data format is valid and the associated Camel component is present on the classpath
+	
+	add dependency 
+	<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-jackson-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		
+		restart microservice B
+		
+		
+		received-message-from-active-mq          : 
+		Exchange[ExchangePattern: InOnly, BodyType: com.example.camelmicroserviceb.routes.CurrencyExchange, Body: CurrencyExchange [id=1000, from=USD, to=INR, conversionMultiple=70]]
